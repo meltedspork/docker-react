@@ -9,7 +9,7 @@ script:
   - docker run -e CI=true meltedspork/docker-react npm run test -- --coverage
 
 deploy:
-  provider: elasticbranstalk
+  provider: elasticbeanstalk
   region: "us-east-1"
   app: "docker"
   env: "Docker-env"
