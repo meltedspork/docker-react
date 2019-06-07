@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true meltedspork/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbranstalk
+  region: "us-east-1"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-706479344561"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWSACCESSKEY
+  secret_access_key:
+    secure: "$AWSSECRETKEY"
